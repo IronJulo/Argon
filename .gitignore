@@ -1,0 +1,12 @@
+
+.vscode/
+
+Argon/Argon
+
+Argon/cmake_install.cmake
+
+Argon/CMakeCache.txt
+
+Argon/CMakeFiles/
+
+Argon/Makefile
