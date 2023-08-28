@@ -28,7 +28,7 @@ jobs:
 
       - name: Build
         run: |
-          cd Argon/build
+          cd Argon
           cmake --build build
 
       - name: Test (optional)
