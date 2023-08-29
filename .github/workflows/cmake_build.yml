@@ -35,3 +35,37 @@ jobs:
         run: |
           cd Argon/build
           ctest
+          
+  create-artifact:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Create Build Directory
+        run: |
+          cd Argon
+          mkdir build
+          mkdir build/input
+          mkdir build/output
+
+      - name: Fill Build Directory
+        run: |
+          cd Argon
+          cp src/* build/input/
+          cp include/* build/input/
+
+      - name: Download Heady
+        run: |
+          wget https://headybucket2.s3.eu-west-3.amazonaws.com/Heady Heady
+
+      - name: Build Header Only
+        run: |
+          cd Argon
+          ../Heady --define ARGON_HEADER_ONLY --source "./Build/input" --output "Build/output/Argon.hpp"     
+      - name: Make Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Release
+          path: Argon/build/output/Argon.hpp
