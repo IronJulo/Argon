@@ -64,7 +64,7 @@ jobs:
       - name: Build Header Only
         run: |
           cd Argon
-          ../Heady --define ARGON_HEADER_ONLY --source "./Build/input" --output "Build/output/Argon.hpp"     
+          ../Heady --define ARGON_HEADER_ONLY --source "build/input" --output "build/output/Argon.hpp"     
       - name: Make Artifact
         uses: actions/upload-artifact@v3
         with:
