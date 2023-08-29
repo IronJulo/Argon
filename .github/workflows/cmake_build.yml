@@ -59,6 +59,7 @@ jobs:
       - name: Download Heady
         run: |
           wget https://headybucket2.s3.eu-west-3.amazonaws.com/Heady
+          chmod +x Heady
 
       - name: Build Header Only
         run: |
